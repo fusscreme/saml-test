@@ -1,0 +1,18 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata"
+    entityID="Abacus ERP Login">
+    <SPSSODescriptor AuthnRequestsSigned="false"
+        WantAssertionsSigned="true"
+        protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+
+        <!-- Assertion Consumer Service (ACS) -->
+        <AssertionConsumerService
+            Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST"
+            Location="https://mavm153.customize.ch/oauth/oauth2/v1/saml/acs"
+            index="1"
+            isDefault="true" />
+
+        <!-- Request persistent NameID (username) -->
+        <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</NameIDFormat>
+
+    </SPSSODescriptor>
+</EntityDescriptor>
