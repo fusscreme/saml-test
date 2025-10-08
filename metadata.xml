@@ -1,18 +1,43 @@
 <EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata"
-    entityID="Abacus ERP Login">
-    <SPSSODescriptor AuthnRequestsSigned="false"
-        WantAssertionsSigned="true"
-        protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+    xmlns:alg="urn:oasis:names:tc:SAML:metadata:algsupport"
+    xmlns:ds="http://www.w3.org/2000/09/xmldsig#"
+    entityID="https://mavm153.customize.ch">
 
-        <!-- Assertion Consumer Service (ACS) -->
+    <Extensions>
+        <alg:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256" />
+        <alg:SigningMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256" />
+    </Extensions>
+
+    <!-- This block describes the Service Provider -->
+    <SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol"
+        AuthnRequestsSigned="false"
+        WantAssertionsSigned="true">
+
+        <KeyDescriptor use="signing">
+            <ds:KeyInfo>
+                <ds:X509Data>
+                    <ds:X509Certificate>
+                        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
+                    </ds:X509Certificate>
+                </ds:X509Data>
+            </ds:KeyInfo>
+        </KeyDescriptor>
+
+        <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</NameIDFormat>
+
+        <!-- This is the Assertion Consumer Service (ACS) endpoint on your system -->
         <AssertionConsumerService
             Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST"
             Location="https://mavm153.customize.ch/oauth/oauth2/v1/saml/acs"
-            index="1"
+            index="0"
             isDefault="true" />
-
-        <!-- Request persistent NameID (username) -->
-        <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</NameIDFormat>
-
     </SPSSODescriptor>
+
+    <!-- Informational details about your organisation -->
+    <Organization>
+        <OrganizationName xml:lang="en">MAVM 153 Customize AG</OrganizationName>
+        <OrganizationDisplayName xml:lang="en">MAVM 153 Customize AG</OrganizationDisplayName>
+        <OrganizationURL xml:lang="en">https://customize.ch/</OrganizationURL>
+    </Organization>
+
 </EntityDescriptor>
